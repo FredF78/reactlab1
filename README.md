@@ -3,8 +3,7 @@ It can be speeded up by compiling the jsx on the server and returning them with 
 
 To run this, execute following steps (node.js required: found at http://nodejs.org/)
 
-* npm install
-* grunt
-* node index.js
-
-point a browser to index.html port 3000 at server running node
+1. npm install
+2. grunt
+3. node index.js
+4. point a browser to index.html port 3000 at server running node
