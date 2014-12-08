@@ -1,0 +1,33 @@
+@import '_colors.scss';
+@import '_dimensions.scss';
+
+.col-md-6 {
+	width: $half;
+}
+
+.col-md-1 {
+	width: $full;
+}
+
+.btn {
+	border: 1px solid $midgray;
+	padding: 3px;
+
+	.delete {
+		color: $warning-color;
+	}
+	.edit {
+		color: $info-color;
+	}
+}
+
+.row {
+	.top-buffer {
+		margin-top: $row-top-buffer;
+	}
+}
+
+.adminAlbumHoverBGColor {
+  background-color: $row-hover;
+  color: white;
+}

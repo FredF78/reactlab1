@@ -1,0 +1,27 @@
+.col-md-6 {
+  width: 50%;
+}
+
+.col-md-1 {
+  width: 100%;
+}
+
+.btn {
+  border: 1px solid #666666;
+  padding: 3px;
+}
+.btn .delete {
+  color: #d2322d;
+}
+.btn .edit {
+  color: #428bca;
+}
+
+.row .top-buffer {
+  margin-top: 10px;
+}
+
+.adminAlbumHoverBGColor {
+  background-color: #cccccc;
+  color: white;
+}
