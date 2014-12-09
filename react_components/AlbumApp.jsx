@@ -8,13 +8,7 @@ module.exports = React.createClass({
 		return null;
 	},
 	componentDidMount: function() {
-		$.get('/albums', function(result) {
-			if (this.isMounted()) {
-				this.setState({
-					albumData: result
-				});
-			}
-		}.bind(this));
+		// TODO: plug in flux framework and dispatch an action against the store to fetch data
 	},
 	render: function () {
 		return (
