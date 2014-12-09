@@ -1,5 +1,6 @@
 @import '_colors.scss';
 @import '_dimensions.scss';
+@import '_text.scss';
 
 .col-md-6 {
 	width: $half;
@@ -31,3 +32,16 @@
   background-color: $row-hover;
   color: white;
 }
+
+@include iphone {
+	font-size: 20px; /* todo: tweak these sizes*/
+}
+
+@include tablet {
+	font-size: 18px;
+}
+
+@include desktop {
+	font-size: 16px;
+}
+
