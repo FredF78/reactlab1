@@ -1,8 +1,15 @@
 .col-md-6 {
+  display: inline-block;
   width: 50%;
 }
 
+.col-md-9 {
+  display: inline-block;
+  width: 25%;
+}
+
 .col-md-1 {
+  display: inline-block;
   width: 100%;
 }
 

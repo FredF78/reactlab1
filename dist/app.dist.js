@@ -28601,9 +28601,9 @@ module.exports = React.createClass({displayName: 'exports',
 	render: function () {
 		return (
 			React.createElement("div", {className: "row top-buffer", id: this.props.id}, 
-				React.createElement("span", {className: "col-md-6"}, this.props.name), 
-				React.createElement("span", {className: "col-md-1"}, React.createElement("a", {className: "btn edit", href: 'albums/' + this.props.id}, "Edit")), 
-				React.createElement("span", {className: "col-md-1"}, 
+				React.createElement("span", {className: "col-md-9"}, this.props.name), 
+				React.createElement("span", {className: "col-md-9"}, React.createElement("a", {className: "btn edit", href: 'albums/' + this.props.id}, "Edit")), 
+				React.createElement("span", {className: "col-md-9"}, 
 					React.createElement("input", {'data-id': this.props.id, value: "delete album", name: 'deletebuttonalbum' + this.props.id, id: 'deletebuttonalbum' + this.props.id, className: "btn delete"})
 				)
 			)

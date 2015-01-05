@@ -3,10 +3,17 @@
 @import '_text.scss';
 
 .col-md-6 {
+	display: inline-block;
 	width: $half;
 }
 
+.col-md-9 {
+	display: inline-block;
+	width: $fourth;
+}
+
 .col-md-1 {
+	display: inline-block;
 	width: $full;
 }
 
