@@ -28,7 +28,6 @@
 
 @media (max-width: 359px) {
   font-size: 20px;
-  /* todo: tweak these sizes*/
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   font-size: 18px;

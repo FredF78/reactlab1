@@ -27512,24 +27512,26 @@ var AlbumList = require('./AlbumList.jsx');
 var $ = require('jquery');
 
 module.exports = React.createClass({displayName: 'exports',
-	getInitialState: function () { 
-		return null;
+	getInitialState: function () {
+		// TODO: plug in flux framework and dispatch an action against the store to fetch data
+		debugger;
+		return {
+			'albumData': [{
+				id: 0, title: 'firstalbum'
+			},{
+				id: 1, title: 'secondalbum'
+			}]
+		};
 	},
 	componentDidMount: function() {
-		$.get('/albums', function(result) {
-			if (this.isMounted()) {
-				this.setState({
-					albumData: result
-				});
-			}
-		}.bind(this));
+		debugger;
 	},
 	render: function () {
 		return (
 			React.createElement("div", null, 
 				React.createElement("h2", null, "Albums"), 
 				React.createElement("div", {class: "albumcontainer"}, 
-					React.createElement(AlbumList, null, this.state.albumData)
+					React.createElement(AlbumList, {albumData: this.state.albumData})
 				)
 			)
 		);
@@ -27542,7 +27544,7 @@ var React = require('react');
 var Album = require('./Album.jsx');
 module.exports = React.createClass({displayName: 'exports',
 	render: function () {
-		var albums = this.props.data.map(function (album) {
+		var albums = this.props.albumData.map(function (album) {
 			return (
 				React.createElement(Album, {id: album.id, title: album.title}
 				)

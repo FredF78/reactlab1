@@ -3,7 +3,7 @@ var React = require('react');
 var Album = require('./Album.jsx');
 module.exports = React.createClass({
 	render: function () {
-		var albums = this.props.data.map(function (album) {
+		var albums = this.props.albumData.map(function (album) {
 			return (
 				<Album id={album.id} title={album.title}>
 				</Album>
