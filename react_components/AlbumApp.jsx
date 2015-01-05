@@ -1,18 +1,21 @@
 /** @jsx React.DOM */
 var React = require('react');
+var Reflux = require('reflux');
 var AlbumList = require('./AlbumList.jsx');
+var AlbumStore = require('./AlbumStore');
+var AlbumAction = require('./AlbumAction');
 var $ = require('jquery');
 
 module.exports = React.createClass({
+	onDataLoaded: function(albumData) {
+        this.setState({
+            albumData: albumData
+        });
+    },
 	getInitialState: function () {
-		// TODO: plug in flux framework and dispatch an action against the store to fetch data
-		return {
-			'albumData': [{
-				id: 0, title: 'firstalbum'
-			},{
-				id: 1, title: 'secondalbum'
-			}]
-		};
+		AlbumAction();
+		this.albumData = AlbumStore.listen(this.onDataLoaded);
+		return {};
 	},
 	componentDidMount: function() {
 	},
@@ -20,7 +23,7 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<h2>Albums</h2>
-				<div class="albumcontainer">
+				<div className="albumcontainer">
 					<AlbumList albumData={this.state.albumData}></AlbumList>
 				</div>
 			</div>

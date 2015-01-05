@@ -1,4 +1,4 @@
-This app is built to a browseriy bundle containing jsx snippets and react runtime which compiles everything in the browser.
+This app is built to a browseriy bundle containing jsx snippets and react runtime. Grunt compiles jsx and browserifies the app.
 
 To run this, execute following steps (node.js required: found at http://nodejs.org/)
 
