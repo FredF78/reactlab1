@@ -1,0 +1,12 @@
+@import '_colors.scss';
+@import '_dimensions.scss';
+@import '_text.scss';
+
+.row.top-buffer {
+	margin-top: $row-top-buffer;
+}
+
+.adminAlbumHoverBGColor {
+  background-color: $row-hover;
+  color: white;
+}

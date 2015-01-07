@@ -9,7 +9,7 @@ module.exports = Reflux.createStore({
 	},
 	loadData: function () {
 		var that = this;
-		$.get('http://localhost:3000/albums').done(function(data) {
+		$.get('http://87.237.214.60/albums').done(function(data) {
 			that.loadCallback(data);
 		});
 	},

@@ -15,7 +15,7 @@ module.exports = React.createClass({
 		}
 
 		return (
-			<div className="albumlist">
+			<div id="albumcontainer">
 				{albums}
 			</div>
 		)

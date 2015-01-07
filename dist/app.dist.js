@@ -28594,33 +28594,29 @@ var React = require('react');
 var AlbumApp = require('./AlbumApp.jsx');
 
 React.render(AlbumApp(), document.body); /* Not sure how to refer to a DOM node when rendering this servert side. */
-},{"./AlbumApp.jsx":169,"react":148}],167:[function(require,module,exports){
+},{"./AlbumApp.jsx":168,"react":148}],167:[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 module.exports = React.createClass({displayName: 'exports',
 	render: function () {
 		return (
 			React.createElement("div", {className: "row top-buffer", id: this.props.id}, 
-				React.createElement("span", {className: "col-md-9"}, this.props.name), 
-				React.createElement("span", {className: "col-md-9"}, React.createElement("a", {className: "btn edit", href: 'albums/' + this.props.id}, "Edit")), 
-				React.createElement("span", {className: "col-md-9"}, 
-					React.createElement("input", {'data-id': this.props.id, value: "delete album", name: 'deletebuttonalbum' + this.props.id, id: 'deletebuttonalbum' + this.props.id, className: "btn delete"})
+				React.createElement("span", {className: "col-md-6"}, this.props.name), 
+				React.createElement("span", {className: "col-md-1"}, React.createElement("a", {className: "btn btn-primary btn-xs", href: 'albums/' + this.props.id}, "Edit")), 
+				React.createElement("span", {className: "col-md-1"}, 
+					React.createElement("input", {'data-id': this.props.id, value: "Delete", name: 'deletebuttonalbum' + this.props.id, id: 'deletebuttonalbum' + this.props.id, className: "btn btn-danger btn-xs"})
 				)
 			)
 		)
 	}
 });
 },{"react":148}],168:[function(require,module,exports){
-var Reflux = require('reflux');
-
-module.exports = Reflux.createAction("iWantData");
-},{"reflux":149}],169:[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var Reflux = require('reflux');
 var AlbumList = require('./AlbumList.jsx');
-var AlbumStore = require('./AlbumStore');
-var AlbumAction = require('./AlbumAction');
+var AlbumStore = require('../reflux_components/AlbumStore');
+var AlbumAction = require('../reflux_components/AlbumAction');
 var $ = require('jquery');
 
 module.exports = React.createClass({displayName: 'exports',
@@ -28638,17 +28634,38 @@ module.exports = React.createClass({displayName: 'exports',
 	},
 	render: function () {
 		return (
-			React.createElement("div", null, 
-				React.createElement("h2", null, "Albums"), 
-				React.createElement("div", {className: "albumcontainer"}, 
-					React.createElement(AlbumList, {albumData: this.state.albumData})
+			React.createElement("div", {className: "container"}, 
+				React.createElement("div", {className: "row"}, 
+					React.createElement("div", {className: "col-md-12"}, 
+						React.createElement("div", {styleName: "margin-bottom: 10px"}, 
+							React.createElement("span", {styleName: "margin-right: 10px;"}, 
+								React.createElement("a", {href: "http://kalleforsberg.se"}, "kalleforsberg.se")
+							), 
+							React.createElement("span", {styleName: "margin-left: 20px;"}, 
+								React.createElement("a", {href: "logout.php"}, "Logout")
+							)
+						), 
+						React.createElement("h2", null, "Albums"), 
+						React.createElement("div", {id: "albumactions", styleNameName: "margin-top: 15px"}, 
+							React.createElement("span", {styleNameName: "margin-right: 10px;"}, 
+								React.createElement("a", {href: "newalbum.php", styleNameName: "font-weight: bold;"}, "(+) Create new album")
+							)
+						), 
+						
+						React.createElement(AlbumList, {albumData: this.state.albumData}), 
+						React.createElement("div", {id: "albumactions", styleNameName: "margin-top: 15px"}, 
+							React.createElement("span", {styleNameName: "margin-right: 10px;"}, 
+								React.createElement("a", {href: "newalbum.php", styleNameName: "font-weight: bold;"}, "(+) Create new album")
+							)
+						)
+					)
 				)
 			)
 		);
 	}
 });
 
-},{"./AlbumAction":168,"./AlbumList.jsx":170,"./AlbumStore":171,"jquery":2,"react":148,"reflux":149}],170:[function(require,module,exports){
+},{"../reflux_components/AlbumAction":170,"../reflux_components/AlbumStore":171,"./AlbumList.jsx":169,"jquery":2,"react":148,"reflux":149}],169:[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react');
 var Album = require('./Album.jsx');
@@ -28666,14 +28683,18 @@ module.exports = React.createClass({displayName: 'exports',
 		}
 
 		return (
-			React.createElement("div", {className: "albumlist"}, 
+			React.createElement("div", {id: "albumcontainer"}, 
 				albums
 			)
 		)
 		
 	}
 });
-},{"./Album.jsx":167,"react":148}],171:[function(require,module,exports){
+},{"./Album.jsx":167,"react":148}],170:[function(require,module,exports){
+var Reflux = require('reflux');
+
+module.exports = Reflux.createAction("iWantData");
+},{"reflux":149}],171:[function(require,module,exports){
 var Reflux = require('reflux');
 var $ = require('jquery');
 var AlbumAction = require('./AlbumAction');
@@ -28685,7 +28706,7 @@ module.exports = Reflux.createStore({
 	},
 	loadData: function () {
 		var that = this;
-		$.get('http://localhost:3000/albums').done(function(data) {
+		$.get('http://87.237.214.60/albums').done(function(data) {
 			that.loadCallback(data);
 		});
 	},
@@ -28693,4 +28714,4 @@ module.exports = Reflux.createStore({
 		this.trigger(data);
 	}
 });
-},{"./AlbumAction":168,"jquery":2,"reflux":149}]},{},[166,167,169,170]);
+},{"./AlbumAction":170,"jquery":2,"reflux":149}]},{},[166,167,168,169]);
