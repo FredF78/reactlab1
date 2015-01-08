@@ -2,7 +2,8 @@ This app is built to a browseriy bundle containing jsx snippets and react runtim
 
 To run this, execute following steps (node.js required: found at http://nodejs.org/)
 
-1. npm install
-2. grunt
-3. node index.js
-4. point a browser to index.html port 3000 at server running node
+1. on the dev machine: npm install
+2. on the dev machine: grunt
+3. on the server: npm install -g express (the app depends on express for its api and is not shipped with the distribution)
+4. on the server: node index.js
+5. in the browser: request index.html port 3000 on server running node
